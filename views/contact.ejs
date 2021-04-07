@@ -6,13 +6,11 @@
 </head>
 
 <body>
-    <p>
-        <%= qs.person %>
-    </p>
+    <%- include('partials/nav.ejs') %>
     <h1>Contact us</h1>
     <p>Get in contact with the super cool people!</p>
 
-    <form id="contact-form">
+    <form id="contact-form" method="POST" action="/contact">
 
         <label for="who">Who do you want to contact?</label>
         <input type="text" , name="who" value="<%= qs.person %>">
