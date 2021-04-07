@@ -2,13 +2,15 @@ var express = require('express');
 var app = express();
 
 app.set('view engine', 'ejs');
+app.use('/assets', express.static('stuff'));
 
 app.get('/', function (request, response) {
-    response.sendFile(__dirname + '/index.html')
+    response.render('index')
 });
 
 app.get('/contact', function (request, response) {
-    response.sendFile(__dirname + '/contact.html')
+    console.log(request.query)
+    response.render('contact', {qs: request.query})
 });
 
 app.get('/profile/:name', function (request, response) {
